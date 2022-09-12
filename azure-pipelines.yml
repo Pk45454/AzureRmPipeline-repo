@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'AzureRmPipeline-conn'
+    subscriptionId: 'd5184bd1-ed1f-454f-be71-72166aa8cf99'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'logicapp1'
+    location: 'South India'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json'
+    overrideParameters: '-projectName LogicApp'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
