@@ -23,4 +23,4 @@ steps:
     csmFileLink: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json'
     overrideParameters: '-projectName LogicApp'
     deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
+    deploymentName: 'DeployPipelineTemplate1234'
